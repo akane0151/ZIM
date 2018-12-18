@@ -11,6 +11,7 @@ class Project extends CI_Controller
     function __construct(){
         parent::__construct();
         $this->load->model('Project_model');
+        $this->load->model('Product_model');
     }
     public function index()
     {
@@ -37,7 +38,7 @@ class Project extends CI_Controller
         $data = array();
 
         foreach($res->result() as $r) {
-            $action = "<div class='table-data-feature'><button class='item editItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-edit'></i></button></button><button class='item removeItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Delete'><i class='zmdi zmdi-delete'></i></button></div>";
+            $action = "<div class='table-data-feature'><button class='item showItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-info'></i></button><button class='item editItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-edit'></i></button></button><button class='item removeItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Delete'><i class='zmdi zmdi-delete'></i></button></div>";
 
             $data[] = array(
                 $r->id,
@@ -90,7 +91,6 @@ class Project extends CI_Controller
         catch (Exception $e){
             echo $e->getMessage();
         }
-
     }
     public function update(){
         try{
@@ -135,17 +135,28 @@ class Project extends CI_Controller
             $result = $this->Project_model->get_project($id);
             if(!is_string($result)){
                 $items = json_encode($result['items']);
+                $hm = 1000000000;
+                foreach($items as $i){
+                    $tmp = $this->howmany($i->id, $i->number);
+                    if($hm > $tmp){
+                        $hm = $tmp;
+                    }
+
+
+                }
+                return json_encode($hm);
             }
                 //echo json_encode($result);
             else {
-                echo "false";
+                echo json_encode("false");
             }
-
         }
         catch (Exception $e){
             echo $e->getMessage();
         }
-
+    }
+    public function howmany($id,$number){
+        return $this->Product_model->get_stock($id)/$number;
 
     }
 }

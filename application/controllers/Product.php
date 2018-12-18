@@ -168,7 +168,6 @@ class Product extends CI_Controller
             echo $result;
         else
             echo "false";
-
     }
     public function update(){
         try{

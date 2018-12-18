@@ -311,6 +311,23 @@
             });
             return false;
         });
+        $(".table").on("click",'.showItem', function() {
+            pid = $(this).data('project_id');
+            $.ajax({
+                type : "POST",
+                url  : "<?php echo site_url('project/calculate')?>",
+                dataType : "JSON",
+                data : {id:pid},
+                success: function(data){
+                    alert(data);
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    $(".loading").css('visibility','hidden');
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown);
+                }
+            });
+            return false;
+        });
 
         $(".table").on("click",'.removeItem', function() {
             var id = $(this).data('project_id');
