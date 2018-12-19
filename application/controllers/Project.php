@@ -38,7 +38,7 @@ class Project extends CI_Controller
         $data = array();
 
         foreach($res->result() as $r) {
-            $action = "<div class='table-data-feature'><button class='item showItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-info'></i></button><button class='item editItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-edit'></i></button></button><button class='item removeItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Delete'><i class='zmdi zmdi-delete'></i></button></div>";
+            $action = "<div class='table-data-feature'><button class='item showItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Info'><i class='zmdi zmdi-info'></i></button><button class='item editItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-edit'></i></button></button><button class='item removeItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Delete'><i class='zmdi zmdi-delete'></i></button></div>";
 
             $data[] = array(
                 $r->id,
@@ -129,22 +129,20 @@ class Project extends CI_Controller
         }
 
     }
-    public function calculate($id){
+    public function calculate(){
         try{
             $id = $this->input->post('id', TRUE);
             $result = $this->Project_model->get_project($id);
             if(!is_string($result)){
-                $items = json_encode($result['items']);
+                $items = json_decode($result['items']);
                 $hm = 1000000000;
                 foreach($items as $i){
                     $tmp = $this->howmany($i->id, $i->number);
                     if($hm > $tmp){
                         $hm = $tmp;
                     }
-
-
                 }
-                return json_encode($hm);
+                echo json_encode($hm);
             }
                 //echo json_encode($result);
             else {
@@ -156,7 +154,8 @@ class Project extends CI_Controller
         }
     }
     public function howmany($id,$number){
-        return $this->Product_model->get_stock($id)/$number;
+        $stock = $this->Product_model->get_stock($id);
+        return round($stock/$number);
 
     }
 }

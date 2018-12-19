@@ -319,7 +319,7 @@
                 dataType : "JSON",
                 data : {id:pid},
                 success: function(data){
-                    alert(data);
+                    alert(data + " copy of this project could be produced." );
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     $(".loading").css('visibility','hidden');
