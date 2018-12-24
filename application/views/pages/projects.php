@@ -4,42 +4,13 @@
 
                 <div class="col-md-12">
                     <h3 style="text-align: center;">Projects</h3>
-                    <!-- DATA TABLE-->
-                    <!--div class="table-data__tool">
-                        <div class="table-data__tool-left">
-                            <!div class="rs-select2--light rs-select2--md">
-                                <select class="js-select2" name="property">
-                                    <option selected="selected">All Properties</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
-                            <div class="rs-select2--light rs-select2--sm">
-                                <select class="js-select2" name="time">
-                                    <option selected="selected">Today</option>
-                                    <option value="">3 Days</option>
-                                    <option value="">1 Week</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
-                            <button class="au-btn-filter">
-                                <i class="zmdi zmdi-filter-list"></i>filters</button>
-                        </div-->
+
                         <div class="table-data__tool-right">
                             <button id="addbutton" class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#addModal">
                                 <i class="zmdi zmdi-plus"></i>add</button>
-                            <!--div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                <select class="js-select2" name="type">
-                                    <option selected="selected">Export</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div-->
                         </div>
-                    </div>
-                    <div class="table-responsive table--no-card m-b-30">
+                </div>
+                <div class="table-responsive table--no-card m-b-30">
                         <table class="table table-borderless table-striped table-earning">
                             <thead>
                             <tr>
@@ -52,7 +23,7 @@
                             <tbody>
                             </tbody>
                         </table>
-                    </div>
+                </div>
                     <!-- modal medium -->
                     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
@@ -87,16 +58,18 @@
                                                 <div class="form-group">
                                                     <label for="number" class="control-label mb-1" style="width: 100%;float:left;margin-right: 5px;">Number:</label>
                                                     <input id="number" name="number" style="width:100px;float:left;margin-right: 5px;" type="number" class="input-sm form-control-sm form-control" aria-required="true" aria-invalid="false" value="0">
-                                            </form>
-                                                        <button id="item-add" style="float:left;margin-right: 5px;" class="btn btn-warning btn-sm">Add</button>
+                                                    <button id="item-add" style="float:left;margin-right: 5px;" class="btn btn-warning btn-sm">Add</button>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div id="list-items" class="form-group">
-                                            <ul>
+                                    </form>
 
-                                            </ul>
-                                        </div>
+                                    <div class="col-md-12">
+                                    <div id="list-items" class="form-group">
+                                        <ul>
+
+                                        </ul>
+                                    </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -105,6 +78,8 @@
                             </div>
                         </div>
                     </div>
+                    <!-- end modal medium -->
+
                     <!-- end modal medium -->
                     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
@@ -116,12 +91,11 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="add-form" method="post" role="form">
+                                    <form id="edit-form" method="post" role="form">
                                         <div class="form-group">
                                             <label for="name" class="control-label mb-1">Project name</label>
                                             <input id="name" name="name" minlength="3" maxlength="50" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
                                         </div>
-
                                         <div class="form-group">
                                             <label for="description" class="control-label mb-1">Description</label>
                                             <input id="description" name="description" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
@@ -139,32 +113,53 @@
                                                 <div class="form-group">
                                                     <label for="number" class="control-label mb-1" style="width: 100%;float:left;margin-right: 5px;">Number:</label>
                                                     <input id="number" name="number" style="width:100px;float:left;margin-right: 5px;" type="number" class="input-sm form-control-sm form-control" aria-required="true" aria-invalid="false" value="0">
+                                                    <button id="item-add" style="float:left;margin-right: 5px;" class="btn btn-warning btn-sm">Add</button>
+                                                </div>
+                                            </div>
                                     </form>
-                                    <button id="item-add" style="float:left;margin-right: 5px;" class="btn btn-warning btn-sm">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="list-items" class="form-group">
-                            <ul>
+                                    <div class="col-md-12">
+                                    <div id="list-items" class="form-group">
+                                        <ul>
 
-                            </ul>
-                        </div>
-                    </div>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                     <button id="update-btn" class="btn btn-primary">Confirm</button>
                                 </div>
-
                             </div>
                         </div>
                     </div>
+                <!-- end modal medium -->
+                <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mediumModalLabel">Production number</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="data"></p>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button id="update-btn" class="btn btn-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                     <!-- end modal medium -->
                     <!-- END DATA TABLE-->
-                </div>
             </div>
-
         </div>
 
+</div>
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -319,7 +314,8 @@
                 dataType : "JSON",
                 data : {id:pid},
                 success: function(data){
-                    alert(data + " copy of this project could be produced." );
+                   $("#showModal .modal-body #data").html(data + " copy of this project could be produced." );
+                   $("#showModal").modal('show');
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     $(".loading").css('visibility','hidden');
