@@ -19,8 +19,9 @@ class Project extends CI_Controller
             $data['module'] = 'project';
             $data['access'] = $this->session->userdata('access');
             $this->load->view("header.html");
-            $this->load->view("topbar");
+
             $this->load->view("sidebar", $data);
+            $this->load->view("topbar");
             $this->load->view("pages/projects");
 
 

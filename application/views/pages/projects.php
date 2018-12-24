@@ -24,6 +24,7 @@
                             </tbody>
                         </table>
                 </div>
+                <!-- END DATA TABLE-->
                     <!-- modal medium -->
                     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
@@ -132,8 +133,10 @@
                             </div>
                         </div>
                     </div>
-                <!-- end modal medium -->
-                <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+                    <!-- end modal medium -->
+
+                    <!-- modal medium -->
+                    <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -155,12 +158,13 @@
                 </div>
 
                     <!-- end modal medium -->
-                    <!-- END DATA TABLE-->
+
+
             </div>
         </div>
 
 </div>
-</div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         var items = [];
@@ -407,3 +411,4 @@
         }
     });
 </script>
+</div>
