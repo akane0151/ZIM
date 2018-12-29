@@ -14,7 +14,11 @@
                 </li>
                 <?php if($access=='2'||$access=='1') {?>
                 <li class="has-sub">
-                    <a class="js-arrow" href="#">
+                    <?php if($module=='product'||$module=='category') {?>
+                    <a class="js-arrow open" href="#">
+                        <?php } else {?>
+                        <a class="js-arrow" href="#">
+                            <?php } ?>
                         <i class="fas fa-warehouse"></i>Inventory</a>
                     <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
@@ -37,14 +41,18 @@
                 </li>
                 <?php if($access=='2'||$access=='1') {?>
                     <li class="has-sub">
-                        <a class="js-arrow" href="#">
+                        <?php if($module=='project'||$module=='production') {?>
+                        <a class="js-arrow open" href="#">
+                        <?php } else {?>
+                            <a class="js-arrow" href="#">
+                        <?php } ?>
                             <i class="fas fa-warehouse"></i>Products</a>
                         <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                             <li>
                                 <a href="<?php echo base_url(); ?>project" <?php if($module=='project'){ echo "style='color: #4272d7;'";} ?>>Projects</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>productions" <?php if($module=='production'){ echo "style='color: #4272d7;'";} ?>>Production</a>
+                                <a href="<?php echo base_url(); ?>production" <?php if($module=='production'){ echo "style='color: #4272d7;'";} ?>>Production</a>
                             </li>
 
                         </ul>

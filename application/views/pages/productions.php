@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="col-md-3">
                                         <label for="items" class="control-label mb-1">Number of copy</label>
-                                        <input id="number" name="number" minlength="1" maxlength="100000" type="number" class="form-control" aria-required="true" aria-invalid="false" value="1">
+                                        <input id="number" name="number" min="1" max="1000000" type="number" class="form-control" aria-required="true" aria-invalid="false" value="1">
                                 </div>
                                 <div class="col-md-3">
                                         <label for="items" class="control-label mb-1" style="width:100%;height:24px;"></label>
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="table-responsive m-b-40">
-                                        <table class="table table-borderless table-data3">
+                                        <table id="shortages" class="table table-borderless table-data3">
                                             <thead>
                                             <tr>
                                                 <th>#</th>
@@ -90,6 +90,7 @@
         var pid;
         var items = [];
         $("#calc-btn").prop("disabled",true);
+        $("#addproject").prop("disabled",true);
         $(".chosen-select").chosen({width: "90%",search_contains:true,});
 
         function loadItems(){
@@ -184,8 +185,32 @@
             });
         }
 
+        $(".chosen-select").chosen().change( function() {
+            if($(".chosen-select").val()==0){
+                $("#addproject").prop('disabled',true);
+            } else {
+                $("#addproject").prop('disabled',false);
+            }
+        });
+
         function isNotNull(value) {
             return value != null;
         }
+
+        $("#calcModal #shortages").tableExport({
+            headers: true,
+        footers: true,
+        formats: ["xls"],
+        fileName: "shortages",
+        bootstrap: false,
+        exportButtons: true,
+        position: "bottom",
+        ignoreRows: null,
+        ignoreCols: null,
+        trimWhitespace: true,
+        RTL: false,
+        sheetname: "shortages"
+
+    });
     });
 </script>
