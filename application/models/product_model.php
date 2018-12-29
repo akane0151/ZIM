@@ -23,6 +23,12 @@ class Product_model extends CI_Model
         $query = $this->db->get('products');
         return $query;
     }
+    public function get_stocks()
+    {
+        $this->db->select('ID,OnHand');
+        $query = $this->db->get('products');
+        return $query;
+    }
 
     public function get_product($id)
     {
@@ -67,6 +73,13 @@ class Product_model extends CI_Model
             return $e;
         }
 
+    }
+    public function get_name($id){
+        $this->db->select('Name');
+        $this->db->where('id',$id);
+        $this->db->from('products');
+        $res = $this->db->get();
+        return $res->row()->Name;
     }
     public function get_stock($id){
         $this->db->select('OnHand');

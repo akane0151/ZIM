@@ -18,7 +18,7 @@
                         <i class="fas fa-warehouse"></i>Inventory</a>
                     <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
-                            <a href="<?php echo base_url(); ?>product" <?php if($module=='product'){ echo "style='color: #4272d7;'";} ?>>Products</a>
+                            <a href="<?php echo base_url(); ?>product" <?php if($module=='product'){ echo "style='color: #4272d7;'";} ?>>Items</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>category" <?php if($module=='category'){ echo "style='color: #4272d7;'";} ?>>Categories</a>
@@ -36,10 +36,19 @@
                         <i class="fas fa-barcode"></i>Orders</a>
                 </li>
                 <?php if($access=='2'||$access=='1') {?>
-                <li>
-                    <a href="<?php echo base_url(); ?>project"  <?php if($module=='project'){ echo "style='color: #4272d7;'";} ?>>
-                        <i class="far fa-check-square"></i>Projects</a>
-                </li>
+                    <li class="has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-warehouse"></i>Products</a>
+                        <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                            <li>
+                                <a href="<?php echo base_url(); ?>project" <?php if($module=='project'){ echo "style='color: #4272d7;'";} ?>>Projects</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>productions" <?php if($module=='production'){ echo "style='color: #4272d7;'";} ?>>Production</a>
+                            </li>
+
+                        </ul>
+                    </li>
                 <li>
                     <a href="<?php echo base_url(); ?>template"  <?php if($module=='template'){ echo "style='color: #4272d7;'";} ?>>
                         <i class="far fa-check-square"></i>Template</a>

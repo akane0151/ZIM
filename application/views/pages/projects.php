@@ -36,7 +36,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="add-form" method="post" role="form">
+
                                         <div class="form-group">
                                             <label for="name" class="control-label mb-1">Project name</label>
                                             <input id="name" name="name" minlength="3" maxlength="50" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
@@ -62,14 +62,12 @@
                                                     <button id="item-add" style="float:left;margin-right: 5px;" class="btn btn-warning btn-sm">Add</button>
                                                 </div>
                                             </div>
-                                    </form>
-
-                                    <div class="col-md-12">
-                                    <div id="list-items" class="form-group">
-                                        <ul>
-
-                                        </ul>
-                                    </div>
+                                        <div class="col-md-12">
+                                            <div id="list-items" class="form-group">
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -92,7 +90,6 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="edit-form" method="post" role="form">
                                         <div class="form-group">
                                             <label for="name" class="control-label mb-1">Project name</label>
                                             <input id="name" name="name" minlength="3" maxlength="50" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
@@ -117,14 +114,15 @@
                                                     <button id="item-add" style="float:left;margin-right: 5px;" class="btn btn-warning btn-sm">Add</button>
                                                 </div>
                                             </div>
-                                    </form>
-                                    <div class="col-md-12">
-                                    <div id="list-items" class="form-group">
-                                        <ul>
 
-                                        </ul>
-                                    </div>
-                                    </div>
+                                        <div class="col-md-12">
+                                        <div id="list-items" class="form-group">
+                                            <ul>
+
+                                            </ul>
+                                        </div>
+                                        </div>
+                                        </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -140,18 +138,20 @@
                     <div class="modal-dialog modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="mediumModalLabel">Production number</h5>
+                                <h5 class="modal-title" id="mediumModalLabel">Production</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p id="data"></p>
+                                <div class="row">
+                                    <p id="data" style="padding:15px; "></p>
+
+                                </div>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button id="update-btn" class="btn btn-primary">Confirm</button>
+                                <button id="" class="btn btn-primary" data-dismiss="modal">Ok</button>
                             </div>
                         </div>
                     </div>
@@ -318,7 +318,12 @@
                 dataType : "JSON",
                 data : {id:pid},
                 success: function(data){
-                   $("#showModal .modal-body #data").html(data + " copy of this project could be produced." );
+                    if (data=="0"){
+                        $("#showModal .modal-body #data").html("We can't manufacture this project. Some items are not enough.");
+
+                    } else {
+                        $("#showModal .modal-body #data").html("We can manufacture " + data + " copy of this project.");
+                    }
                    $("#showModal").modal('show');
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {

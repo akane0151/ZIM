@@ -156,7 +156,7 @@ class Project extends CI_Controller
     }
     public function howmany($id,$number){
         $stock = $this->Product_model->get_stock($id);
-        return round($stock/$number);
-
+        $result = ($stock/$number);
+        return floor($result);
     }
 }
