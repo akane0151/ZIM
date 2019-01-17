@@ -189,7 +189,7 @@
         function loadItems(){
             $.ajax({
                 type: "POST",
-                url: "<?php echo site_url('product/get_lists')?>",
+                url: "<?php echo site_url('product/get_list')?>",
                 dataType: "JSON",
                 success: function(data) {
                     if (data != "false") {
