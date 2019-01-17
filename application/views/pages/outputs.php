@@ -325,7 +325,7 @@
                         $("#editModal #date").val('');
                         $("#editModal #number").val('');
                         $("#editModal #descriptions").val('');
-                        $("#editModal").modal('show');
+                        $("#editModal").modal('hide');
                         myTable.ajax.reload();
 
                         pid=0;
