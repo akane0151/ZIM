@@ -189,14 +189,14 @@
         function loadItems(){
             $.ajax({
                 type: "POST",
-                url: "<?php echo site_url('product/get_products')?>",
+                url: "<?php echo site_url('product/get_lists')?>",
                 dataType: "JSON",
                 success: function(data) {
                     if (data != "false") {
                         //var opts = $.parseJSON(data);
                         var i;
                         for(i=0; i<data['data'].length ; i++){
-                            $('.chosen-select').append('<option value="' + data['data'][i][0] + '">' + data['data'][i][1] + '</option>');
+                            $('.chosen-select').append('<option value="' + data['data'][i][0] + '">' + data['data'][i][1] + " " + data['data'][i][3] + '</option>');
                         }
                         $(".chosen-select").trigger("chosen:updated");
                     }

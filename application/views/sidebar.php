@@ -16,11 +16,14 @@
                 <li class="has-sub">
                     <?php if($module=='product'||$module=='category') {?>
                     <a class="js-arrow open" href="#">
+                        <i class="fas fa-warehouse"></i>Inventory</a>
+                        <ul class="navbar-mobile-sub__list list-unstyled js-sub-list" style="display: block;">
                         <?php } else {?>
                         <a class="js-arrow" href="#">
+                            <i class="fas fa-warehouse"></i>Inventory</a>
+                        <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                             <?php } ?>
-                        <i class="fas fa-warehouse"></i>Inventory</a>
-                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+
                         <li>
                             <a href="<?php echo base_url(); ?>product" <?php if($module=='product'){ echo "style='color: #4272d7;'";} ?>>Items</a>
                         </li>
@@ -43,11 +46,14 @@
                     <li class="has-sub">
                         <?php if($module=='project'||$module=='production') {?>
                         <a class="js-arrow open" href="#">
+                            <i class="fas fa-warehouse"></i>Products</a>
+                        <ul class="navbar-mobile-sub__list list-unstyled js-sub-list" style="display: block;">
                         <?php } else {?>
                             <a class="js-arrow" href="#">
+                                <i class="fas fa-warehouse"></i>Products</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <?php } ?>
-                            <i class="fas fa-warehouse"></i>Products</a>
-                        <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+
                             <li>
                                 <a href="<?php echo base_url(); ?>project" <?php if($module=='project'){ echo "style='color: #4272d7;'";} ?>>Projects</a>
                             </li>

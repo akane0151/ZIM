@@ -68,8 +68,24 @@ class Dashboard extends CI_Controller
     }
     public function howmany($id,$number){
         $stock = $this->Product_model->get_stock($id);
-        return round($stock/$number);
+        $result = ($stock/$number);
+        return floor($result);
 
+    }
+    public function underlimit(){
+        $result = $this->Product_model->get_productlimit();
+        $warn = array();
+        foreach($result->result() as $r) {
+
+                $warn[] = array(
+                    'id'=>$r->id,
+                    'name'=>$r->Name,
+                    'shortage'=>($r->MinimumRequired - $r->OnHand)
+                );
+
+
+        }
+        echo json_encode($warn);
     }
 
 }

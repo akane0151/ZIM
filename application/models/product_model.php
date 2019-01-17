@@ -23,6 +23,13 @@ class Product_model extends CI_Model
         $query = $this->db->get('products');
         return $query;
     }
+    public function get_productlimit()
+    {
+        $this->db->select('id,Name,OnHand,MinimumRequired');
+        $this->db->where("OnHand < MinimumRequired");
+        $query = $this->db->get('products');
+        return $query;
+    }
     public function get_stocks()
     {
         $this->db->select('ID,OnHand');
@@ -119,4 +126,5 @@ class Product_model extends CI_Model
 
         }
     }
+
 }

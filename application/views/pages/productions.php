@@ -55,21 +55,31 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="table-responsive m-b-40">
-                                        <table id="shortages" class="table table-borderless table-data3">
-                                            <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Number</th>
-                                                <th>status</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-                                        </table>
+                                    <div class="loading">
+                                        <div class="loader">
+                                        </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                        </div>
+                                        <div class="table-responsive m-b-40">
+                                            <table id="shortages" class="table table-borderless table-data3">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                    <th>Number</th>
+                                                    <th>status</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
@@ -117,7 +127,9 @@
 
         $("#calc-btn").click(function(event) {
             event.preventDefault();
+            $("#calcModal .loading").css("visibility","visible");
             $("#calcModal table tbody").empty();
+            $("#calcModal").modal('show');
             $.ajax({
                 type: "POST",
                 url: "<?php echo site_url('production/calculation')?>",
@@ -129,10 +141,12 @@
                     $(".loading").css('visibility', 'hidden');
                     if (data != "false")
                     {
+
                         $.each(data,function(i,v){
                             $("#calcModal table tbody").append("<tr><td>"+v.id+"</td><td>"+ v.name +"</td><td>"+v.number+"</td><td class=\"denied\">shortage</td></tr>");
                         });
-                        $("#calcModal").modal('show');
+                        $("#calcModal .loading").css("visibility","hidden");
+
                     }
                     else if (typeof data === 'string')
                     {
@@ -197,20 +211,6 @@
             return value != null;
         }
 
-        $("#calcModal #shortages").tableExport({
-            headers: true,
-        footers: true,
-        formats: ["xls"],
-        fileName: "shortages",
-        bootstrap: false,
-        exportButtons: true,
-        position: "bottom",
-        ignoreRows: null,
-        ignoreCols: null,
-        trimWhitespace: true,
-        RTL: false,
-        sheetname: "shortages"
 
-    });
     });
 </script>

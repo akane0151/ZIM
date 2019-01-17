@@ -4,7 +4,7 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <h3 style="text-align: center;">Products</h3>
+                    <h3 style="text-align: center;">Items</h3>
                     <!-- DATA TABLE-->
                     <!--div class="table-data__tool">
                         <div class="table-data__tool-left">
@@ -63,7 +63,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="mediumModalLabel">New product</h5>
+                                    <h5 class="modal-title" id="mediumModalLabel">New item</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
