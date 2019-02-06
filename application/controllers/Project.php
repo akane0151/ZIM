@@ -39,7 +39,8 @@ class Project extends CI_Controller
         $data = array();
 
         foreach($res->result() as $r) {
-            $action = "<div class='table-data-feature'><button class='item showItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Info'><i class='zmdi zmdi-info'></i></button><button class='item editItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-edit'></i></button></button><button class='item removeItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Delete'><i class='zmdi zmdi-delete'></i></button></div>";
+            $action = "<div class='table-data-feature'><button class='item showItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Info'><i class='zmdi zmdi-info'></i></button>
+                <button class='item showItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Info'><i class='zmdi zmdi-info'></i></button><button class='item editItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-edit'></i></button></button><button class='item removeItem' data-toggle='tooltip' data-project_id='".$r->id."' data-placement='top' title='Delete'><i class='zmdi zmdi-delete'></i></button></div>";
 
             $data[] = array(
                 $r->id,

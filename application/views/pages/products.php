@@ -350,9 +350,9 @@
 
         $("#addbutton").on('click',function(event){
             $('#addModal #attributes-container ul').empty();
-            $("#addModal .chosen-select").val("0").trigger('chosen:updated');
+            $("#addModal .chosen-select option[value='0']").attr('selected', true);
             $("#addModal #category").jstree("deselect_all");
-            //$("#addModal .chosen-select").trigger("chosen:updated");
+            $("#addModal .chosen-select").trigger("chosen:updated");
 
         });
         $(".modal-content").on("click","#addproduct-btn", function(event) {

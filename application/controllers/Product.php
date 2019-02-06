@@ -35,7 +35,7 @@ class Product extends CI_Controller
             $action = "<div class='table-data-feature'><button class='item editItem' data-toggle='tooltip' data-product_id='".$r->id."' data-placement='top' title='Edit'><i class='zmdi zmdi-edit'></i></button></button><button class='item removeItem' data-toggle='tooltip' data-product_id='".$r->id."' data-placement='top' title='Delete'><i class='zmdi zmdi-delete'></i></button></div>";
             $atr = "<ul>";
             foreach (json_decode($r->attributes) as $item){
-                if($item->value != 'true' & $item->value != 'false'){
+                if($item->value != 'true' || $item->value != 'false'){
                     $atr .= "<li>".$item->name.": ".$item->value;
                     if(isset($item->unit)){
                         $atr .= " ".$item->unit."</li>";
