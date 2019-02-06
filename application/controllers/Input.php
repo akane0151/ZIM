@@ -38,7 +38,7 @@ class Input extends CI_Controller
                 $r->Name,
                 $r->date,
                 $r->number,
-                $r->final_price,
+                number_format($r->final_price),
                 $action
             );
         }

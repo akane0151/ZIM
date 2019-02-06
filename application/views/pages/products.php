@@ -333,6 +333,10 @@
         var pid;
         var myTable = $('.table').DataTable({
             "paging": true,
+            "language": {
+                "decimal": ",",
+                "thousands": "."
+            },
             "order": [[ 0, "desc" ]],
             dom: 'Bfrtip',
             buttons: [
@@ -340,6 +344,7 @@
                 'csvHtml5',
                 'pdfHtml5'
             ],
+
             "ajax": {
                 url : "<?php echo site_url("product/get_products") ?>",
                 type: "POST",
