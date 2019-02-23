@@ -38,7 +38,7 @@ class Input extends CI_Controller
                 $r->Name,
                 $r->date,
                 $r->number,
-                number_format($r->final_price),
+                number_format($r->final_price).' '. $this->Setting_model->get("currency"),
                 $action
             );
         }
@@ -80,11 +80,6 @@ class Input extends CI_Controller
                 else
                     echo "false";
             }
-
-
-
-
-
         }catch (Exception $e){
             echo $e;
         }
